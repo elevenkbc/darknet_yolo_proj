@@ -1,0 +1,2 @@
+missing detection  (漏掉偵測) 真實資料有，我們沒偵測到
+false alarm (價警報) 我們偵測到，真實資料沒有
