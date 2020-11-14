@@ -4,9 +4,8 @@ Created on 2020年1月20日
 
 @author: RaoBlack
 '''
-
-import numpy as np
 import cv2
+import numpy as np
 import os
 from xml.etree.ElementTree import Element, ElementTree
 import string
@@ -140,23 +139,23 @@ def convert2xml(imgfolderPath, savefolder, yolofolder, txtName, classArrray):
 
     indent(root, 0) #整理 annotation 的格式
     tree.write(os.path.join(savePath, fn + '.xml'), 'UTF-8')
-
-
 # classArrray = ['plate']
-classArrray = []
-AtoZ = string.ascii_uppercase
-for a in AtoZ:
-    classArrray.append(a)
-for i in range(10):
-    classArrray.append(str(i))
+
+if __name__ == "__main__":
+    classArrray = []
+    AtoZ = string.ascii_uppercase
+    for a in AtoZ:
+        classArrray.append(a)
+    for i in range(10):
+        classArrray.append(str(i))
+        
     
-
-imgfolderPath = '/home/bc/eclipse-workspace/PLR_35/VOC_YOLO/yolo_dir/PlateNumberTraining/PlateImg'
-
-yolofolder = 'predictTxt'
-savefolder = 'predictTxtXml'
-
-for file in sorted(os.listdir(os.path.join('yolo_dir/PlateNumberTraining', yolofolder))):
-    print('processing', file)
-    convert2xml(imgfolderPath, savefolder, yolofolder, file, classArrray)
+    imgfolderPath = '/home/bc/eclipse-workspace/PLR_35/VOC_YOLO/yolo_dir/PlateNumberTraining/PlateImg'
     
+    yolofolder = 'predictTxt'
+    savefolder = 'predictTxtXml'
+    
+    for file in sorted(os.listdir(os.path.join('yolo_dir/PlateNumberTraining', yolofolder))):
+        print('processing', file)
+        convert2xml(imgfolderPath, savefolder, yolofolder, file, classArrray)
+        

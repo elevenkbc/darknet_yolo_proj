@@ -53,8 +53,11 @@ if __name__ == "__main__":
 #     xmlFolderPath = 'yolo_dir/PlatePositionTraining/VideoImgXml'
 #     saveFolderPath = 'yolo_dir/PlatePositionTraining/VideoImgTxt'
     
-    xmlFolderPath = 'yolo_dir/Pedicle_0902/Xml'
-    saveFolderPath = 'yolo_dir/Pedicle_0902/Txt'
+#     xmlFolderPath = 'yolo_dir/Pedicle_0902/Xml'
+#     saveFolderPath = 'yolo_dir/Pedicle_0902/Txt'
+
+    xmlFolderPath = 'yolo_dir/Pedicle_1112/Xml'
+    saveFolderPath = 'yolo_dir/Pedicle_1112/Txt'
     if not os.path.exists(saveFolderPath):
         os.makedirs(saveFolderPath)
     # case1: 車牌位置檢測
@@ -75,7 +78,7 @@ if __name__ == "__main__":
 
     # 方法1: 整個folder 按照順序通通讀取
     files = os.listdir(xmlFolderPath)
-    files.sort(key=lambda x:int(x[-8:-4]))#檔案照順序讀取
+    files.sort(key=lambda x:int(x[3:7]))#檔案照順序讀取
    
     for file in files:
         print('processing file', file)
